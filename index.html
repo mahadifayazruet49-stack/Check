@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Beautiful Silvi 💖</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome Icons for extra cuteness -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts for romantic typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            overflow: hidden;
+        }
+        .romantic-title {
+            font-family: 'Dancing Script', cursive;
+        }
+        /* Custom floating hearts animation background */
+        .heart-bg {
+            position: absolute;
+            background: rgba(244, 63, 94, 0.4);
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            transform: rotate(-45deg);
+            animation: floatUp 8s linear infinite;
+            bottom: -50px;
+        }
+        .heart-bg::before, .heart-bg::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(244, 63, 94, 0.4);
+        }
+        .heart-bg::before { top: -10px; left: 0; }
+        .heart-bg::after { left: 10px; top: 0; }
+
+        @keyframes floatUp {
+            0% {
+                transform: rotate(-45deg) translateY(0) scale(0.6);
+                opacity: 0;
+            }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% {
+                transform: rotate(-45deg) translateY(-105vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+        /* Page Transitions */
+        .page-step {
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+        .page-hidden {
+            display: none !important;
+            opacity: 0;
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-rose-950 via-purple-950 to-zinc-950 min-h-screen text-gray-100 flex items-center justify-center p-4 relative overflow-hidden">
+
+    <!-- Container for dynamic floating background elements -->
+    <div id="heartsContainer" class="absolute inset-0 pointer-events-none z-0"></div>
+
+    <!-- MAIN ROMANTIC INTERACTIVE CARD -->
+    <main class="w-full max-w-lg bg-zinc-900/60 backdrop-blur-xl border border-rose-500/20 rounded-3xl p-6 md:p-10 shadow-2xl shadow-rose-950/50 z-10 text-center relative">
+        
+        <!-- Little floating decorative top icon -->
+        <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-gradient-to-tr from-rose-500 to-pink-500 rounded-full flex items-center justify-center shadow-lg shadow-rose-500/30 animate-bounce">
+            <i class="fa-solid fa-heart text-white text-3xl"></i>
+        </div>
+
+        <!-- ================= PAGE 1: THE HOOK ================= -->
+        <div id="page1" class="page-step space-y-8 pt-4">
+            <h1 class="text-3xl md:text-4xl font-bold tracking-wide text-rose-300 leading-relaxed">
+                Hey <span class="romantic-title text-pink-400 text-4xl md:text-5xl">Silvi!</span>
+            </h1>
+            <p class="text-base md:text-lg text-rose-100/90 leading-relaxed">
+                This thing is created by your man, he wanted to say something that he always does.
+            </p>
+            <p class="text-xl font-bold text-amber-300">Do you wanna see?</p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                <button onclick="goToPage(2)" class="w-full sm:w-40 bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-400 hover:to-pink-400 text-white font-bold py-3.5 px-6 rounded-full shadow-lg shadow-rose-500/20 transform hover:scale-105 active:scale-95 transition-all cursor-pointer">
+                    Yes <i class="fa-solid fa-heart-pulse ml-1 animate-pulse"></i>
+                </button>
+                <button onclick="goToPage(2)" class="w-full sm:w-40 bg-zinc-800 hover:bg-zinc-700 text-gray-300 font-medium py-3.5 px-6 rounded-full border border-zinc-700 transform hover:scale-105 active:scale-95 transition-all cursor-pointer">
+                    No
+                </button>
+            </div>
+        </div>
+
+        <!-- ================= PAGE 2: THE SETUP ================= -->
+        <div id="page2" class="page-step page-hidden space-y-8 pt-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-rose-300 tracking-wide">
+                How much do you love <span class="romantic-title text-pink-400 text-4xl">Borshon?</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 gap-4 pt-2">
+                <button onclick="goToPage(3)" class="group w-full bg-zinc-950/40 border border-rose-500/20 hover:border-rose-400 p-5 rounded-2xl text-left flex items-center justify-between transition-all transform hover:-translate-y-1 hover:shadow-lg hover:shadow-rose-500/5 cursor-pointer">
+                    <span class="text-lg font-bold text-gray-200 group-hover:text-pink-400 transition-colors">a) 100%</span>
+                    <i class="fa-solid fa-star text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                </button>
+                
+                <button onclick="goToPage(3)" class="group w-full bg-zinc-950/40 border border-rose-500/20 hover:border-pink-400 p-5 rounded-2xl text-left flex items-center justify-between transition-all transform hover:-translate-y-1 hover:shadow-lg hover:shadow-pink-500/5 cursor-pointer">
+                    <span class="text-lg font-bold text-gray-200 group-hover:text-pink-400 transition-colors">b) Infinite amount</span>
+                    <i class="fa-solid fa-infinity text-pink-400 opacity-0 group-hover:opacity-100 transition-opacity animate-pulse"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- ================= PAGE 3: THE PROPOSAL & MESSAGE CAPTURE ================= -->
+        <div id="page3" class="page-step page-hidden space-y-6 pt-4">
+            <p class="text-lg md:text-xl font-medium text-rose-200 leading-relaxed">
+                Dear <span class="romantic-title text-pink-400 text-3xl">Silvi</span>, as you love me, now you can give a short text to your beloved man 📜
+            </p>
+
+            <!-- DEVELOPER NOTE: Replace YOUR_ENDPOINT_HERE with your unique free Formspree form ID to receive emails instantly when she replies -->
+            <form id="proposalForm" action="https://formspree.io/f/YOUR_ENDPOINT_HERE" method="POST" class="space-y-4">
+                <input type="hidden" name="_subject" value="Silvi sent you a message! 💖">
+                
+                <div>
+                    <textarea name="message" id="silviMessage" required rows="4" placeholder="Write something sweet for Borshon..." class="w-full bg-zinc-950/60 border border-rose-900/60 focus:border-pink-500 rounded-2xl p-4 text-sm text-gray-100 placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-pink-500/20 resize-none transition-all custom-scrollbar"></textarea>
+                </div>
+
+                <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-rose-500 via-pink-500 to-purple-600 hover:opacity-95 text-white font-bold py-3.5 px-6 rounded-xl shadow-xl shadow-pink-900/30 transform hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer flex items-center justify-center gap-2">
+                    <span>Send to Borshon</span>
+                    <i class="fa-solid fa-paper-plane text-xs"></i>
+                </button>
+            </form>
+        </div>
+
+        <!-- ================= FINAL COMPLETED VIEW ================= -->
+        <div id="finalView" class="page-step page-hidden space-y-6 py-6 flex flex-col items-center justify-center">
+            <!-- Super Cute Virtual Banner Toast Notification Simulation -->
+            <div class="bg-emerald-950/80 border border-emerald-500/30 rounded-xl px-4 py-2.5 flex items-center gap-2.5 text-xs font-semibold text-emerald-400 shadow-md animate-bounce">
+                <i class="fa-solid fa-bell-on text-sm text-amber-400"></i>
+                <span>Notification: Borshon received your message instantly!</span>
+            </div>
+
+            <div class="text-6xl md:text-7xl py-2 animate-pulse">
+                🥰
+            </div>
+            
+            <h2 class="romantic-title text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-rose-400 to-amber-300 drop-shadow">
+                I Love You!
+            </h2>
+            
+            <p class="text-sm text-rose-200/80 max-w-xs mx-auto">
+                Thank you for being mine, Silvi. My heart belongs completely to you. Forever and always.
+            </p>
+        </div>
+
+    </main>
+
+    <!-- INLINE NATIVE ENGINE SCRIPT INTERCEPTORS -->
+    <script>
+        // --- FLOATING HEARTS GENERATOR ---
+        function createBackgroundHearts() {
+            const container = document.getElementById('heartsContainer');
+            const heartCount = 25;
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart-bg';
+                
+                // Randomize sizes, positioning and deployment speeds
+                const size = Math.floor(Math.random() * 15) + 10;
+                heart.style.width = `${size}px`;
+                heart.style.height = `${size}px`;
+                heart.style.left = `${Math.random() * 100}%`;
+                heart.style.animationDelay = `${Math.random() * 6}s`;
+                heart.style.animationDuration = `${Math.random() * 5 + 6}s`;
+                
+                container.appendChild(heart);
+            }
+        }
+
+        // --- NAVIGATION STATE LOGIC CONTROLLER ---
+        function goToPage(stepNumber) {
+            // Find current visible element block
+            const activePage = document.querySelector('.page-step:not(.page-hidden)');
+            const nextPage = document.getElementById(`page${stepNumber}`);
+            
+            if (activePage && nextPage) {
+                // Fade out current page view smoothly
+                activePage.style.opacity = '0';
+                activePage.style.transform = 'scale(0.95)';
+                
+                setTimeout(() => {
+                    activePage.classList.add('page-hidden');
+                    nextPage.classList.remove('page-hidden');
+                    
+                    // Force display alignment trigger rendering sequence frame
+                    setTimeout(() => {
+                        nextPage.style.opacity = '1';
+                        nextPage.style.transform = 'scale(1)';
+                    }, 50);
+                }, 400);
+            }
+        }
+
+        // --- ASYNCHRONOUS MESSAGING INTERCEPT HANDLER ---
+        const form = document.getElementById('proposalForm');
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault(); // Stop standard blank page routing redirect
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const originalBtnContent = submitBtn.innerHTML;
+            
+            // Set loading interface context indicators
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> <span>Sending...</span>`;
+            
+            const data = new FormData(form);
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Try playing a cute native sweet ping if allowed by browser audio layer
+                    try {
+                        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                        const oscillator = audioCtx.createOscillator();
+                        const gainNode = audioCtx.createGain();
+                        oscillator.type = 'sine';
+                        oscillator.frequency.setValueAtTime(587.33, audioCtx.currentTime); // D5 Note
+                        oscillator.frequency.setValueAtTime(880, audioCtx.currentTime + 0.1); // A5 Note
+                        gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+                        oscillator.connect(gainNode);
+                        gainNode.connect(audioCtx.destination);
+                        oscillator.start();
+                        oscillator.stop(audioCtx.currentTime + 0.35);
+                    } catch(e) { /* Audio policy restricted context fallback gracefully */ }
+
+                    // Smooth transition into the sweet animated conclusion screen card element
+                    const activePage = document.getElementById('page3');
+                    const finalView = document.getElementById('finalView');
+                    
+                    activePage.style.opacity = '0';
+                    setTimeout(() => {
+                        activePage.classList.add('page-hidden');
+                        finalView.classList.remove('page-hidden');
+                        setTimeout(() => {
+                            finalView.style.opacity = '1';
+                            finalView.style.transform = 'scale(1)';
+                        }, 50);
+                    }, 400);
+                    
+                } else {
+                    // Fail gracefully fallback mapping
+                    alert("Oops! There was a tiny connection issue. Please try clicking send again!");
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnContent;
+                }
+            } catch (error) {
+                alert("Oops! There was a tiny connection issue. Please try clicking send again!");
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnContent;
+            }
+        });
+
+        // Initialize background environment components
+        window.addEventListener('DOMContentLoaded', () => {
+            createBackgroundHearts();
+            // Match structural opacity presets
+            document.getElementById('page1').style.opacity = '1';
+        });
+    </script>
+</body>
+</html>
